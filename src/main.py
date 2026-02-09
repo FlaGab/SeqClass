@@ -6,7 +6,14 @@ import numpy as np
 def main():
 
     # Load the sequences from the FASTA file
-    fasta_file = "/Users/flaviogabrieli/Documents/resources/arabid_data/Araport11_assembly/Araport11_cdna_20240409.fasta"
+    
+    # check whether a fasta file is already specified, if not, use the default one
+    
+    if len(sys.argv) > 1:
+        fasta_file = sys.argv[1]
+    else:
+        fasta_file = "data/arabidopsis_cdna_sample.fasta"
+    
     sequences = fasta_loader.load_fasta(fasta_file)
     # PRINT NUMBER OF SEQUENCES LOADED
     print(f"Loaded {len(sequences)} sequences from {fasta_file}")
