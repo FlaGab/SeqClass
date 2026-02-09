@@ -8,7 +8,7 @@ from tqdm import tqdm
 class mRNAData(Dataset):
     def __init__(self, sequences):
         # Clean sequences: replace U with T and ensure uppercase
-        self.sequences = [s.retrotranscription() for s in sequences]
+        self.sequences = [seq.replace("U", "T").replace("u", "t").upper() for seq in sequences]
 
     def __len__(self):
         return len(self.sequences)
@@ -50,7 +50,7 @@ def run_batch_inference(sequences, batch_size=16):
                 return_tensors="pt", 
                 padding=True, 
                 truncation=True, 
-                max_length=6000
+                max_length=1024
             ).to(device)
 
             # Forward pass
