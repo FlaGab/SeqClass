@@ -2,11 +2,11 @@ import batch_embedding
 import fasta_loader
 import umap_plot
 import numpy as np
+import sys
 
 def main():
 
     # Load the sequences from the FASTA file
-    
     # check whether a fasta file is already specified, if not, use the default one
     
     if len(sys.argv) > 1:
