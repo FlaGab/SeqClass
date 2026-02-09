@@ -5,5 +5,5 @@ numpy
 torch
 transformers
 tqdm
-umap
+umap-learn
 matplotlib
